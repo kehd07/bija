@@ -1,11 +1,4 @@
-/*
-
-A SimpleSchema-compatible JSON schema
-
-*/
-
 import FormsUpload from 'meteor/vulcan:forms-upload';
-import { getSetting } from 'meteor/vulcan:core';
 
 const schema = {
 
@@ -39,26 +32,94 @@ const schema = {
   },
 
   // custom properties
-
-  imageUrl: {
-    label: 'Image URL',
+  name: {
+    label: 'Name',
     type: String,
     canRead: ['guests'],
-    canCreate: ['members'],
-    canUpdate: ['members'],
-    input: FormsUpload, // use the FormsUpload form component
-    options: {
-      preset: 'vulcanstagram'
-    },
+    canCreate: ['admins'],
+    canUpdate: ['admins'],
+    input: 'textarea',
   },
-  body: {
-    label: 'Body',
+  seasonIds: {
+    label: 'SeasonIds',
+    type: Array,
+    canRead: ['guests'],
+    canCreate: ['admins'],
+    canUpdate: ['admins'],
+  },
+  'seasonIds.$': {
+    label: 'SeasonId',
+    type: String,
+    canRead: ['guests'],
+    canCreate: ['admins'],
+    canUpdate: ['admins'],
+    input: 'input',
+  },
+  category: {
+    label: 'Category',
+    type: String,
+    canRead: ['guests'],
+    canCreate: ['admins'],
+    canUpdate: ['admins'],
+    input: 'input',
+  },
+  description: {
+    label: 'Description',
     type: String,
     optional: true,
-    input: 'textarea', // use a textarea form component
+    input: 'textarea',
     canRead: ['guests'],
-    canCreate: ['members'],
-    canUpdate: ['members']
+    canCreate: ['admins'],
+    canUpdate: ['admins']
+  },
+  ingredients: {
+    label: 'Ingredients',
+    type: Array,
+    optional: true,
+    canRead: ['guests'],
+    canCreate: ['admins'],
+    canUpdate: ['admins']
+  },
+  'ingredients.$': {
+    label: 'Ingredient',
+    type: String,
+    optional: true,
+    input: 'textarea',
+    canRead: ['guests'],
+    canCreate: ['admins'],
+    canUpdate: ['admins']
+  },
+  steps: {
+    label: 'Steps',
+    type: Array,
+    optional: true,
+    canRead: ['guests'],
+    canCreate: ['admins'],
+    canUpdate: ['admins']
+  },
+  'steps.$': {
+    label: 'Step',
+    type: String,
+    optional: true,
+    input: 'textarea',
+    canRead: ['guests'],
+    canCreate: ['admins'],
+    canUpdate: ['admins']
+  },
+  imageUrls: {
+    label: 'Image URLs',
+    type: Array,
+    canRead: ['guests'],
+    canCreate: ['admins'],
+    canUpdate: ['admins'],
+  },
+  'imageUrls.$': {
+    label: 'Image URLs',
+    type: String,
+    canRead: ['guests'],
+    canCreate: ['admins'],
+    canUpdate: ['admins'],
+    input: FormsUpload,
   },
 
   // GraphQL-only field

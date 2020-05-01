@@ -3,18 +3,18 @@ import schema from './schema.js';
 import './fragments.js';
 import '../permissions.js';
 
-const Recipes = createCollection({
-  collectionName: 'Recipes',
-  typeName: 'Recipe',
+const Seasons = createCollection({
+  collectionName: 'Seasons',
+  typeName: 'Season',
   schema,
-  resolvers: getDefaultResolvers('Recipes'),
-  mutations: getDefaultMutations('Recipes'),
+  resolvers: getDefaultResolvers('Seasons'),
+  mutations: getDefaultMutations('Seasons'),
 });
 
-Recipes.addDefaultView(() => {
+Seasons.addDefaultView(() => {
   return {
     options: {sort: {createdAt: -1}}
   };
 });
 
-export default Recipes;
+export default Seasons;

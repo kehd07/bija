@@ -23,7 +23,7 @@ const PicsNewForm = ({currentUser, closeModal}) => (
 );
 
 const accessOptions = {
-  groups: ['members', 'admins'],
+  groups: ['admins'],
 };
 
 registerComponent({ name: 'PicsNewForm', component: PicsNewForm, hocs: [[withAccess, accessOptions]] });
