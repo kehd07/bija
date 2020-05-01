@@ -1,43 +1,6 @@
 import React from 'react';
 import Button from '@material-ui/core/Button';
 import {registerComponent, Components, withCurrentUser, Loading} from 'meteor/vulcan:core';
-import Users from 'meteor/vulcan:users';
-
-const NavLoggedIn = ({currentUser}) => {
-  return (
-    <div className="header-nav header-logged-in">
-      <div className="header-accounts">
-
-        Welcome,&nbsp;
-
-        <Components.ModalTrigger label={Users.getDisplayName(currentUser)} size="small">
-          <div>
-            {Users.isAdmin(currentUser) ? <p>Admin</p> : null}
-            <Components.AccountsLoginForm />
-          </div>
-        </Components.ModalTrigger>
-
-      </div>
-
-      <Components.ShowIf check={() => Users.canDo(currentUser, 'recipes.new')}>
-        <Components.ModalTrigger label="Upload">
-          <Components.PicsNewForm />
-        </Components.ModalTrigger>
-      </Components.ShowIf>
-    </div>
-  )};
-
-// navigation bar component when the user is logged out
-
-const NavLoggedOut = ({currentUser}) => {
-  return (
-    <div className="header-nav header-logged-out">
-      <Components.ModalTrigger label="Sign Up/Log In" size="small">
-        <Components.AccountsLoginForm />
-      </Components.ModalTrigger>
-    </div>
-  );
-};
 
 const NavMenu = ({results = [], currentUser, loading}) => {
   return (
@@ -66,10 +29,6 @@ const Header = ({currentUser}) => {
             <strong>Kitchen</strong>
           </div>
         </Button>
-        {currentUser ?
-          <NavLoggedIn currentUser={currentUser}/> :
-          <NavLoggedOut currentUser={currentUser}/>
-        }
       </div>
       <NavMenu/>
     </div>
@@ -77,4 +36,4 @@ const Header = ({currentUser}) => {
 
 };
 
-registerComponent({ name: 'Header', component: Header, hocs: [withCurrentUser ] });
+registerComponent({ name: 'Header', component: Header });

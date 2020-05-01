@@ -2,7 +2,7 @@ import '../components/about/About.jsx';
 import '../components/blog/Blog.jsx';
 
 import '../components/common/Header.jsx';
-import '../components/common/Home.jsx';
+import '../components/common/Admin.jsx';
 import '../components/common/Layout.jsx';
 
 import '../components/recipes/RecipesItem.jsx';
