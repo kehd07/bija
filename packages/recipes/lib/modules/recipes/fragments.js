@@ -14,7 +14,7 @@ registerFragment(/* GraphQL */`
     user {
       displayName
     }
-    imageUrl
+    imageUrls
   }
 `);
 
@@ -26,7 +26,7 @@ registerFragment(/* GraphQL */`
     user {
       displayName
     }
-    imageUrl
+    imageUrls
     body
   }
 `);

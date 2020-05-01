@@ -5,7 +5,7 @@ const RecipesItem = ({recipe, currentUser}) => {
   return (
     <div className="recipes-item">
       <div className="recipes-image">
-        <img src={recipe.imageUrl}/>
+        <img src={recipe.imageUrls ? recipe.imageUrls[0] : null}/>
       </div>
 
       <div className="recipes-meta"/>
