@@ -25,7 +25,7 @@ Package.onUse(function (api) {
   api.addFiles('lib/stylesheets/style.scss');
 
   api.addAssets([
-    'lib/static/spices_021.jpg'
+    'lib/static/banner.png'
   ], ['client']);
 
   api.mainModule('lib/server/main.js', 'server');

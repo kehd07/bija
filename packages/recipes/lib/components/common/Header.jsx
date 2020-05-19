@@ -23,11 +23,7 @@ const Header = ({currentUser}) => {
     <div className="header-wrapper">
       <div className="header">
         <Button className="logo" href={'/'}>
-          <img src="/packages/recipes/lib/static/spices_021.jpg" alt="Bija"/>
-          <div>
-            <h1><strong>B&#x12B;ja</strong></h1>
-            <strong>Kitchen</strong>
-          </div>
+          <img src="/packages/recipes/lib/static/banner.png" alt="Bija"/>
         </Button>
       </div>
       <NavMenu/>
