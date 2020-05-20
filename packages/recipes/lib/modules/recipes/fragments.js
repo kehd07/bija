@@ -9,31 +9,16 @@ import { registerFragment } from 'meteor/vulcan:core';
 registerFragment(/* GraphQL */`
   fragment RecipesItemFragment on Recipe {
     _id
-    createdAt
-    userId
-    user {
-      displayName
-    }
-    imageUrls
+    name
+    mainImage
   }
 `);
 
 registerFragment(/* GraphQL */`
   fragment RecipesDetailsFragment on Recipe {
     _id
-    createdAt
-    userId
-    user {
-      displayName
-    }
-    imageUrls
-    body
-  }
-`);
-
-registerFragment(/* GraphQL */`
-  fragment RecipesMinimalFragment on Recipe {
-    _id
-    body
+    name
+    mainImage
+    description
   }
 `);

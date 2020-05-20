@@ -38,7 +38,6 @@ const schema = {
     canRead: ['guests'],
     canCreate: ['admins'],
     canUpdate: ['admins'],
-    input: 'textarea',
   },
   seasonIds: {
     label: 'SeasonIds',
@@ -46,6 +45,11 @@ const schema = {
     canRead: ['guests'],
     canCreate: ['admins'],
     canUpdate: ['admins'],
+    optional: true,
+    hidden: (props, document) => {
+      return true;
+      // return !props.document._id;
+    },
   },
   'seasonIds.$': {
     label: 'SeasonId',
@@ -62,28 +66,39 @@ const schema = {
     canCreate: ['admins'],
     canUpdate: ['admins'],
     input: 'input',
+    optional: true,
+    hidden: (props, document) => {
+      return true;
+      // return !props.document._id;
+    },
   },
   description: {
     label: 'Description',
     type: String,
-    optional: true,
     input: 'textarea',
     canRead: ['guests'],
     canCreate: ['admins'],
-    canUpdate: ['admins']
+    canUpdate: ['admins'],
+    optional: true,
+    hidden: (props, document) => {
+      return !props.document._id;
+    },
   },
   ingredients: {
     label: 'Ingredients',
     type: Array,
-    optional: true,
     canRead: ['guests'],
     canCreate: ['admins'],
-    canUpdate: ['admins']
+    canUpdate: ['admins'],
+    optional: true,
+    hidden: (props, document) => {
+      return true;
+      // return !props.document._id;
+    },
   },
   'ingredients.$': {
     label: 'Ingredient',
     type: String,
-    optional: true,
     input: 'textarea',
     canRead: ['guests'],
     canCreate: ['admins'],
@@ -92,19 +107,39 @@ const schema = {
   steps: {
     label: 'Steps',
     type: Array,
-    optional: true,
     canRead: ['guests'],
     canCreate: ['admins'],
-    canUpdate: ['admins']
+    canUpdate: ['admins'],
+    optional: true,
+    hidden: (props, document) => {
+      return true;
+      // return !props.document._id;
+    },
   },
   'steps.$': {
     label: 'Step',
     type: String,
-    optional: true,
     input: 'textarea',
     canRead: ['guests'],
     canCreate: ['admins'],
     canUpdate: ['admins']
+  },
+  mainImage: {
+    label: 'Main Image',
+    type: String,
+    canRead: ['guests'],
+    canCreate: ['admins'],
+    canUpdate: ['admins'],
+    optional: true,
+    resolveAs: {
+      fieldName: 'mainImage',
+      type: 'String',
+      resolver: async (document) => {
+        const missing = 'https://image.flaticon.com/icons/png/512/1687/1687282.png';
+        return document.mainImage ? document.mainImage : missing;
+      },
+      addOriginalField: false 
+    }
   },
   imageUrls: {
     label: 'Image URLs',
@@ -112,6 +147,11 @@ const schema = {
     canRead: ['guests'],
     canCreate: ['admins'],
     canUpdate: ['admins'],
+    optional: true,
+    hidden: (props, document) => {
+      return true;
+      // return !props.document._id;
+    },
   },
   'imageUrls.$': {
     label: 'Image URLs',

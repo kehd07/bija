@@ -1,16 +1,16 @@
 import React from 'react';
-import { Components, registerComponent } from 'meteor/vulcan:core';
+import {registerComponent} from 'meteor/vulcan:core';
+import {Link} from 'react-router-dom';
 
 const RecipesItem = ({recipe, currentUser}) => {
   return (
-    <div className="recipes-item">
-      <div className="recipes-image">
-        <img src={recipe.imageUrls ? recipe.imageUrls[0] : null}/>
+    <Link className='recipes-item' to={'recipes/' + recipe._id}>
+      <div className='recipes-image'>
+        <img src={recipe.mainImage}/>
       </div>
-
-      <div className="recipes-meta"/>
-    </div>
+      <div className='recipes-meta'>{recipe.name}</div>
+    </Link>
   );
 };
 
-registerComponent({ name: 'RecipesItem', component: RecipesItem });
+registerComponent({name: 'RecipesItem', component: RecipesItem});

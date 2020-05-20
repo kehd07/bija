@@ -1,5 +1,5 @@
 import React from 'react';
-import { registerComponent, Components, withList, withCurrentUser, Loading } from 'meteor/vulcan:core';
+import {registerComponent, Components, withList, withCurrentUser, Loading} from 'meteor/vulcan:core';
 import Recipes from '../../modules/recipes/collection.js';
 import Users from 'meteor/vulcan:users';
 
@@ -12,7 +12,7 @@ const RecipesList = ({results = [], currentUser, loading}) => {
           <div className="top-actions">
             <Components.ShowIf check={() => Users.canDo(currentUser, 'recipes.new')}>
               <Components.ModalTrigger label="Create New Recipe">
-                <Components.PicsNewForm />
+                <Components.RecipesNewForm />
               </Components.ModalTrigger>
             </Components.ShowIf>
           </div>
@@ -33,4 +33,4 @@ const options = {
   limit: 10
 };
 
-registerComponent({ name: 'RecipesList', component: RecipesList, hocs: [withCurrentUser, [withList, options]] });
+registerComponent({name: 'RecipesList', component: RecipesList, hocs: [withCurrentUser, [withList, options]]});

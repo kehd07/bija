@@ -621,6 +621,7 @@ type Recipe {
   description: String 
   ingredients: [String] 
   steps: [String] 
+  mainImage: String 
   imageUrls: [String] 
 }
 
@@ -694,6 +695,7 @@ input CreateRecipeDataInput {
   description: String 
   ingredients: [String] 
   steps: [String] 
+  mainImage: String 
   imageUrls: [String] 
 }
 
@@ -716,6 +718,7 @@ input UpdateRecipeDataInput {
   description: String 
   ingredients: [String] 
   steps: [String] 
+  mainImage: String 
   imageUrls: [String] 
 }
 
@@ -734,6 +737,7 @@ input RecipeFilterInput {
   description: String_Selector
 
 
+  mainImage: String_Selector
 
 }
 
@@ -747,6 +751,7 @@ input RecipeSortInput {
   description: SortOptions
   ingredients: SortOptions
   steps: SortOptions
+  mainImage: SortOptions
   imageUrls: SortOptions
 }
 
