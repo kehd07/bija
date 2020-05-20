@@ -5,4 +5,4 @@ addRoute({ name: 'recipes', path: '/recipes', componentName: 'RecipesList' });
 addRoute({ name: 'blog', path: '/blog', componentName: 'Blog' });
 addRoute({ name: 'about', path: '/about', componentName: 'About' });
 
-addRoute({name: 'admin-bk', path: '/admin-bk', componentName: 'AdminUsers'});
+addRoute({name: 'admin', path: '/admin', componentName: 'Admin'});

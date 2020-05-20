@@ -1,10 +1,9 @@
 import React from 'react';
-import { Components, registerComponent, withCurrentUser } from 'meteor/vulcan:core';
+import { registerComponent, Components, withCurrentUser } from 'meteor/vulcan:core';
 import Users from 'meteor/vulcan:users';
 
 const AdminUsers = ({currentUser}) => (
   <div className="admin-users">
-    <Components.AdminLogin/>
     {Users.isAdmin(currentUser) ?
         <Components.Datatable
             collection={Users}
@@ -31,6 +30,25 @@ const AdminUsers = ({currentUser}) => (
   </div>
 );
 
-registerComponent({ name: 'AdminUsers', component: AdminUsers, hocs: [withCurrentUser] });
+const NavLoggedOut = ({currentUser}) => {
+  return (
+    <div className="header-nav header-logged-out">
+      <Components.ModalTrigger label="Sign Up/Log In" size="small">
+        <Components.AccountsLoginForm />
+      </Components.ModalTrigger>
+    </div>
+  );
+};
 
-export default AdminUsers;
+const Admin = ({results = [], currentUser, loading}) => {
+  return (
+    <div>
+      {currentUser ?
+        <AdminUsers currentUser={currentUser}/> :
+        <NavLoggedOut currentUser={currentUser}/>
+      }
+    </div>
+  );
+};
+
+registerComponent({ name: 'Admin', component: Admin, hocs: [withCurrentUser] });

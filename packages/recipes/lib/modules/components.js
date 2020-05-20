@@ -11,5 +11,4 @@ import '../components/recipes/PicsDetails.jsx';
 import '../components/recipes/PicsEditForm.jsx';
 import '../components/recipes/PicsNewForm.jsx';
 
-import '../components/admin/AdminLogin.jsx';
-import '../components/admin/AdminUsers.jsx';
+import '../components/admin/Admin.jsx';
