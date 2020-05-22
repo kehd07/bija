@@ -56,14 +56,22 @@ body{
   img{
     width: 100%;
   }
-  position: relative;
-  margin-bottom: 40px;
   &:hover{
+    text-decoration: none;
     .recipes-meta{
       opacity: 1;
       background: rgba(0,0,0,0.65);
     }
   }
+  p{
+    text-align: center;
+    color: black;
+    font-weight: bold;
+  }
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  margin-bottom: 40px;
   cursor: pointer;
 }
 .recipes-meta{
