@@ -1,4 +1,5 @@
 import FormsUpload from 'meteor/vulcan:forms-upload';
+import EditorComponent from '../../components/common/EditorComponent';
 
 const schema = {
 
@@ -75,7 +76,7 @@ const schema = {
   description: {
     label: 'Description',
     type: String,
-    input: 'textarea',
+    input: 'EditorComponent',
     canRead: ['guests'],
     canCreate: ['admins'],
     canUpdate: ['admins'],
