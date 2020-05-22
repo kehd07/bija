@@ -1,11 +1,19 @@
 import React from 'react';
 import Recipes from '../../modules/recipes/collection.js';
-import {registerComponent, Components, withDocument, withCurrentUser} from 'meteor/vulcan:core';
+import {registerComponent, Components, withSingle, withCurrentUser} from 'meteor/vulcan:core';
 import Users from 'meteor/vulcan:users';
+
+function RecipeSingle({match}) {
+  return (
+    <Components.RecipeDetails documentId={match.params._id}/>
+  );
+}
+
+registerComponent({name: 'RecipeSingle', component: RecipeSingle});
 
 const RecipeDetails = ({loading, document, currentUser}) => {
   if (loading) {
-    return <p>Loading…</p>
+    return <Components.Loading/>;
   } else {
     return (
       <div className="recipes-details">
@@ -24,9 +32,7 @@ const RecipeDetails = ({loading, document, currentUser}) => {
                 }
                 <h1>{document.name}</h1>
               </div>
-              <div>
-                <p>{document.description}</p>
-              </div>
+              <div dangerouslySetInnerHTML={{__html: document.body}}/>
             </div>
           </div>
         </div>
@@ -37,7 +43,7 @@ const RecipeDetails = ({loading, document, currentUser}) => {
 
 const options = {
   collection: Recipes,
-  fragmentName: 'RecipesDetailsFragment',
+  fragmentName: 'RecipesDetailsFragment'
 };
 
-registerComponent({name: 'RecipeDetails', component: RecipeDetails, hocs: [withCurrentUser, [withDocument, options]]});
+registerComponent({name: 'RecipeDetails', component: RecipeDetails, hocs: [withCurrentUser, [withSingle, options]]});
