@@ -618,11 +618,8 @@ type Recipe {
   name: String 
   seasonIds: [String] 
   category: String 
-  description: String 
-  ingredients: [String] 
-  steps: [String] 
+  body: String 
   mainImage: String 
-  imageUrls: [String] 
 }
 
 
@@ -692,11 +689,8 @@ input CreateRecipeDataInput {
   name: String 
   seasonIds: [String] 
   category: String 
-  description: String 
-  ingredients: [String] 
-  steps: [String] 
+  body: String 
   mainImage: String 
-  imageUrls: [String] 
 }
 
 input UpdateRecipeInput{
@@ -715,11 +709,8 @@ input UpdateRecipeDataInput {
   name: String 
   seasonIds: [String] 
   category: String 
-  description: String 
-  ingredients: [String] 
-  steps: [String] 
+  body: String 
   mainImage: String 
-  imageUrls: [String] 
 }
 
 input RecipeFilterInput {
@@ -734,11 +725,8 @@ input RecipeFilterInput {
   name: String_Selector
 
   category: String_Selector
-  description: String_Selector
-
-
+  body: String_Selector
   mainImage: String_Selector
-
 }
 
 input RecipeSortInput {
@@ -748,11 +736,8 @@ input RecipeSortInput {
   name: SortOptions
   seasonIds: SortOptions
   category: SortOptions
-  description: SortOptions
-  ingredients: SortOptions
-  steps: SortOptions
+  body: SortOptions
   mainImage: SortOptions
-  imageUrls: SortOptions
 }
 
 input RecipeSelectorInput {

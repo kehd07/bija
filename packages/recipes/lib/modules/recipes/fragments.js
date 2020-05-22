@@ -19,6 +19,6 @@ registerFragment(/* GraphQL */`
     _id
     name
     mainImage
-    description
+    body
   }
 `);

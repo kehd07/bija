@@ -73,8 +73,8 @@ const schema = {
       // return !props.document._id;
     },
   },
-  description: {
-    label: 'Description',
+  body: {
+    label: 'Body',
     type: String,
     input: 'EditorComponent',
     canRead: ['guests'],
@@ -84,46 +84,6 @@ const schema = {
     hidden: (props, document) => {
       return !props.document._id;
     },
-  },
-  ingredients: {
-    label: 'Ingredients',
-    type: Array,
-    canRead: ['guests'],
-    canCreate: ['admins'],
-    canUpdate: ['admins'],
-    optional: true,
-    hidden: (props, document) => {
-      return true;
-      // return !props.document._id;
-    },
-  },
-  'ingredients.$': {
-    label: 'Ingredient',
-    type: String,
-    input: 'textarea',
-    canRead: ['guests'],
-    canCreate: ['admins'],
-    canUpdate: ['admins']
-  },
-  steps: {
-    label: 'Steps',
-    type: Array,
-    canRead: ['guests'],
-    canCreate: ['admins'],
-    canUpdate: ['admins'],
-    optional: true,
-    hidden: (props, document) => {
-      return true;
-      // return !props.document._id;
-    },
-  },
-  'steps.$': {
-    label: 'Step',
-    type: String,
-    input: 'textarea',
-    canRead: ['guests'],
-    canCreate: ['admins'],
-    canUpdate: ['admins']
   },
   mainImage: {
     label: 'Main Image',
@@ -141,26 +101,6 @@ const schema = {
       },
       addOriginalField: false 
     }
-  },
-  imageUrls: {
-    label: 'Image URLs',
-    type: Array,
-    canRead: ['guests'],
-    canCreate: ['admins'],
-    canUpdate: ['admins'],
-    optional: true,
-    hidden: (props, document) => {
-      return true;
-      // return !props.document._id;
-    },
-  },
-  'imageUrls.$': {
-    label: 'Image URLs',
-    type: String,
-    canRead: ['guests'],
-    canCreate: ['admins'],
-    canUpdate: ['admins'],
-    input: FormsUpload,
   },
 
   // GraphQL-only field
